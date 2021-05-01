@@ -124,18 +124,17 @@ Route::get('/', function () {
     // $articles = Article::all();
     // $articles = Article::orderBy('id')->get();
     // $articles = Article::orderBy('id' , 'desc')->get();
-
+    
 
     // برای تست استفاده می شود
     // dd($articles);
     // dd($articles->title);
     // return view('index');
 
-
-    // factory(Article::class , 10)->create();
-
-    // $articles = Article::orderBy('id' , 'desc')->get();
-    factory(Article::class ,10)->create();
+    // return App\Models\Article::factory()->create();
+    // return App\Models\Article::factory()->count(10)->create();
+      
+    return view('index');
     
 });
 
@@ -146,3 +145,19 @@ Route::get('/about', function () {
 Route::get('/contact', function () {
     return view('contact');
 });
+
+//  استفاد کردیم get می توان دریافت کرد چون از متد  get تنها توی روت  دیتا را بصورت  
+Route::prefix('admin')->group(function() {
+    Route::get('/articles/create' , function() {
+        // اگر داده ای بود    
+        // if($_GET) {
+        //    dd($_GET);
+        // }
+        return view('admin.articles.create');
+    });
+
+    // فرستادن دیتا از فرم بصورت پست به روت
+    Route::post('/articles/create' , function() {
+        dd('test');
+    });
+}); 

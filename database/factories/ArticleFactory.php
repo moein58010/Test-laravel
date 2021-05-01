@@ -4,7 +4,6 @@ namespace Database\Factories;
 
 use App\Models\Article;
 use Illuminate\Database\Eloquent\Factories\Factory;
-use Faker\Generator as Faker;
 
 class ArticleFactory extends Factory
 {
@@ -20,14 +19,13 @@ class ArticleFactory extends Factory
      *
      * @return array
      */
-    public function definition(Faker $faker)
+    public function definition()
     {
         return [
-            'title' => $faker->text(50),
-            'slug' => $faker->slug(),
-            'body' => $faker->paragraph(rand(5,20))
+            'title' => $this->faker->text(50),
+            'slug' => $this->faker->slug(),
+            'body' => $this->faker->paragraph(rand(5,20)),
         ];
+        // مقدار دهی می کند 'created_at & update_at'وقتی با مدل داده را اضافه می کنیم، خودکار خودش به
     }
 }
-
-// مقدار دهی می کند 'created_at & update_at'وقتی با مدل داده را اضافه می کنیم، خودکار خودش به

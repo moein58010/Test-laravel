@@ -1,7 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Models\Article;
+use Illuminate\Support\Facades\Validator;
 
 /*
 |--------------------------------------------------------------------------
@@ -90,7 +91,7 @@ use Illuminate\Support\Facades\Route;
 //     ]);
 // });
 
-use App\Models\Article;
+
 Route::get('/', function () {
     // برای ارنباط برقرار کردن با دیتابیس و جداول مختلف است  DB کلاس
     // تمام دیتا های جدول را بصورت یک لیست بر می گرداند  get() با 
@@ -158,6 +159,82 @@ Route::prefix('admin')->group(function() {
 
     // فرستادن دیتا از فرم بصورت پست به روت
     Route::post('/articles/create' , function() {
-        dd('test');
+        // dd('test');
+        
+        //دریافت اطلاعات
+        // dd($_POST);           request is best 
+        // dd(request()->all());
+        // dd(Request::all());
+        // dd(request('title'));
+
+
+
+
+        // article اضافه کردن داده به جدول  
+
+
+        // چک کردن داده که آیا دیتای ما اعتبار لازم را دارد یا نه؟ 
+
+
+
+        // 1-A) article ایجاد یک شی از 
+        // $article = new Article();
+        //ریختن مقادیر توی شی ها
+        // $article->title = request('title');
+        // $article->slug = request('title');
+        // $article->body = request('body');
+        // $article->save();
+
+        // 1-B) this is best
+        // Article::create([
+        //     'title' => request('title'),
+        //     'slug' => request('title'),
+        //     'body' => request('body')
+        // ]);
+
+
+        // 2) زمانی که دیتای ما به روت پست میاد، هیچ وقت ویویی را نشان ندهیم و نیز هیچ داده ای را بر نگردانیم. یعنی بعد از اتمام پردازش ما توی روت پست باید کاربر را به یک روت گت ریدایرکت کنیم
+        // return redirect('/admin/articles/create');
+
+
+        // $validator = Validator::make(request()->all() , [
+        //     'title' => 'required|min:10|max:50',
+        //     'body' => 'required'
+        // ]);
+
+        // vali
+        // if($validator->fails()) {
+        //     return redirect()
+        //         //بازگشت به صفخه قبل
+        //         ->back()
+        //         ->withErrors($validator);
+        // }
+
+
+        // vali ساده شده 
+        // Validator::make(request()->all() , [
+        //     'title' => 'required|min:10|max:50',
+        //     'body' => 'required'
+        // ])->validate();
+
+
+        // vali بیشتر ساده شده 
+        $validate_data = Validator::make(request()->all() , [
+            'title' => 'required|min:10|max:50',
+            'body' => 'required'
+        ])->validated();
+
+        dd($validate_data);
+
+
+        // 1-B) this is best
+        Article::create([
+            'title' => $validate_data['title'],
+            'slug' => $validate_data['title'],
+            'body' => $validate_data['body'],
+        ]);
+
+        return redirect('/admin/articles/create'); 
+
     });
 }); 

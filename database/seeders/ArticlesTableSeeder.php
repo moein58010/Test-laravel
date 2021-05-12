@@ -26,7 +26,7 @@ class ArticlesTableSeeder extends Seeder
         //     ]);
         // }
 
-        return App\Models\Article::factory()->create();
+        // return App\Models\Article::factory()->create();
     
 
     }

@@ -222,6 +222,8 @@ Route::prefix('admin')->group(function() {
         $validate_data = Validator::make(request()->all() , [
             'title' => 'required|min:10|max:50',
             'body' => 'required'
+        ],[
+            // 'title.required' => 'فیلد مقاله را وارد کنید'
         ])->validated();
 
         dd($validate_data);

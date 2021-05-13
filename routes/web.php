@@ -226,7 +226,7 @@ Route::prefix('admin')->group(function() {
             // 'title.required' => 'فیلد مقاله را وارد کنید'
         ])->validated();
 
-        dd($validate_data);
+        // dd($validate_data);
 
 
         // 1-B) this is best
@@ -236,7 +236,60 @@ Route::prefix('admin')->group(function() {
             'body' => $validate_data['body'],
         ]);
 
-        return redirect('/admin/articles/create'); 
+        return redirect('/admin/articles/create');
 
     });
+
+    //edit form
+    Route::get('/articles/{id}/edit' , function($id) {
+        $article = Article::findOrFail($id);
+
+        return view('admin.articles.edit' , [
+            'article' => $article
+        ]);
+    });
+
+    //دریافت داده های ارسال شده ویرایش شده 
+    // Route::post('/articles/{id}/edit' , function($id) {
+       
+    // put => باشد و برای ویرایش و آپدیت کردن استفاده می شود method="post"حتما باید 
+    Route::put('/articles/{id}/edit' , function($id) {
+        // قدم اول. اعتبار سنجی
+        $validate_data = Validator::make(request()->all() , [
+            'title' => 'required|min:10|max:50',
+            'body' => 'required'
+        ])->validated();
+
+        // article قدم دوم. پیدا کردن 
+        // Article = صدا زدن مدل یا الکونت آرتیکل هست
+        // $article = Article::find($id);
+
+        // ساده شده ی پایینی
+        $article = Article::findOrFail($id);
+
+        // اگه آرتیکل خالی بود
+        // if(is_null($article)) {
+        //     abort(404);
+        // }
+
+        // return $article;
+
+        // این فیلد ها رو توی آرتیکل آپدیت می کند
+        // $article->update([
+        //     'title' => $validate_data['title'],
+        //     'slug' => $validate_data['title'],
+        //     'body' => $validate_data['body'],
+        // ]);
+
+        // ساده شده بالایی
+        // $validate_data = آرتیکل و بادی را بر می گرداند
+        $article->update($validate_data);
+
+
+        // return redirect('/admin/articles/create');
+        // ریدایرکت به صفحه ی قبل(بجای کد بالایی این را استفاده می کنیم)
+        return back();
+
+    });
+
 }); 

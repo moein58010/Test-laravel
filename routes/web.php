@@ -289,7 +289,26 @@ Route::prefix('admin')->group(function() {
         // return redirect('/admin/articles/create');
         // ریدایرکت به صفحه ی قبل(بجای کد بالایی این را استفاده می کنیم)
         return back();
-
     });
 
+
+    // form delete
+    Route::get('/articles' , function() {
+        return view('admin.articles.index', [
+        'articles' => Article::all()
+        ]); 
+    });
+
+    // استفاده نمی شود برای جلوگیری از هک و نفوذ get هیچ وقت برای پاک کردن از روت 
+    // put or post => وجود داشته باشد csrf باعث میشه که برای حذف اطلاعات حتما باید یک 
+    Route::delete('/articles/{id}' , function($id) {
+        // findOrFail => اگه وجود داشت بر می کرداند و اکه نه که خطای 404 را بر می گرداند
+        $article = Article::findOrFail($id);
+
+        //delete() => متدی توی مدل ها هست که دیتا ها را حذف می کند
+        $article->delete();
+
+        // ریدایرکت به صفحه ی قبل
+        return back();
+    });
 }); 

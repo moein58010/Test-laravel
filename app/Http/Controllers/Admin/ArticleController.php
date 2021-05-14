@@ -5,11 +5,10 @@ namespace App\Http\Controllers\Admin;
 
 
 // مدل آرتیکل را باید حتما یوز کنیم چون ازش استفاده کردیم
-use app\Models\Article;
+use App\Models\Article;
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
-use App\Models\User;
+
 
 
 
@@ -18,7 +17,7 @@ class ArticleController extends Controller
 {
     // روت اصلی,form delete
     public function index(){
-        return view('admin.article.index' , [
+        return view('admin.articles.index' , [
             'articles' => Article::all()
         ]);
     }

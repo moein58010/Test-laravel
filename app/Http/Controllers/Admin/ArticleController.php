@@ -4,10 +4,13 @@
 namespace App\Http\Controllers\Admin;
 
 
+
 // مدل آرتیکل را باید حتما یوز کنیم چون ازش استفاده کردیم
 use App\Models\Article;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Http\Request;
+use App\Http\Requests\ArticleRequest;
 
 
 
@@ -29,11 +32,33 @@ class ArticleController extends Controller
     }
 
 
-    public function store(){
-        $validate_data = Validator::make(request()->all() , [
-            'title' => 'required|min:10|max:50',
-            'body' => 'required'
-        ])->validated();
+    // public function store(Request $request){
+       public function store(ArticleRequest $request){
+
+        // $validate_data = Validator::make(request()->all() , [
+        //     'title' => 'required|min:10|max:50',
+        //     'body' => 'required'
+        // ])->validated();
+
+
+        //  ساده شده کد های اعتبار سنجی بالا
+        // $validate_data = $this->validate(request() , [
+        //     'title' => 'required|min:10|max:50',
+        //     'body' => 'required'
+        // ]);
+
+        
+        // validate request استفاده از 
+        // $validate_data = $request->validate([
+        //     'title' => 'required|min:10|max:50',
+        //     'body' => 'required'
+        // ]);
+
+
+        // دریافت اطلاعات اعتبار سنجی شده
+        $validate_data = $request->validated();
+
+
 
         Article::create([
             'title' => $validate_data['title'],
@@ -55,12 +80,37 @@ class ArticleController extends Controller
     }
 
 
-    public function update($id){
+    // public function update($id){
+       public function update(َArticleRequest $request,$id){
+
         // قدم اول. اعتبار سنجی
-        $validate_data = Validator::make(request()->all() , [
-            'title' => 'required|min:10|max:50',
-            'body' => 'required'
-        ])->validated();
+        // $validate_data = Validator::make(request()->all() , [
+        //     'title' => 'required|min:10|max:50',
+        //     'body' => 'required'
+        // ])->validated();
+
+
+
+        // role
+        // [
+        //     'title' => 'required|min:10|max:50',
+        //     'body' => 'required'
+        // ]
+
+
+
+        // ساده شده ی کد های اعتبار سنجی بالا
+        // $validate_data = $this->validate(request() , [
+        //     'title' => 'required|min:10|max:50',
+        //     'body' => 'required'
+        // ]);
+
+
+        // دریافت اطلاعات اعتبار سنجی شده
+        $validate_data = $request->validated();
+
+
+
 
         // article قدم دوم. پیدا کردن 
         // Article = صدا زدن مدل یا الکونت آرتیکل هست

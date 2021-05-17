@@ -78,6 +78,12 @@
 
 use App\Http\Controllers\Admin\ArticleController;
 
+use Illuminate\Http\Request;
+
+
+
+
+
 
 // HomeController@home   => اسم متد داخل کنترلر@اسم کنترلر
 Route::get('/', [\App\Http\Controllers\HomeController::class, 'home']);
@@ -99,7 +105,10 @@ Route::prefix('admin')->namespace('Admin')->group(function() {
 
     // فرستادن دیتا از فرم بصورت پست به روت
     Route::post('/articles/create' , [ArticleController::class, 'store']);
- 
+    
+    // Route::post('/articles/create' , function (Request $request) {
+    //     dd($request->all());
+    // });
 
 
 

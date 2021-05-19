@@ -113,7 +113,14 @@ Route::prefix('admin')->namespace('Admin')->group(function() {
 
 
     //edit form
-    Route::get('/articles/{id}/edit' , [ArticleController::class, 'edit']);
+    // Route::get('/articles/{id}/edit' , [ArticleController::class, 'edit']);
+
+
+    // {article} => اسم مدل , route model binding = این روش هست
+    // Route::get('/articles/{article}/edit' , [ArticleController::class, 'edit']);
+
+    // 2 ta route model binding (id & slug) 
+    Route::get('/articles/{articleSlug}/edit' , [ArticleController::class, 'edit']);
 
 
     //دریافت داده های ارسال شده ویرایش شده 
@@ -121,10 +128,10 @@ Route::prefix('admin')->namespace('Admin')->group(function() {
     
         
     // put => باشد و برای ویرایش و آپدیت کردن استفاده می شود method="post"حتما باید 
-    Route::put('/articles/{id}/edit' , [ArticleController::class, 'update']);
+    Route::put('/articles/{article}/edit' , [ArticleController::class, 'update']);
 
 
     // استفاده نمی شود برای جلوگیری از هک و نفوذ get هیچ وقت برای پاک کردن از روت 
     // put or post => وجود داشته باشد csrf باعث میشه که برای حذف اطلاعات حتما باید یک 
-    Route::delete('/articles/{id}' , [ArticleController::class, 'delete']);
+    Route::delete('/articles/{article}' , [ArticleController::class, 'delete']);
 }); 

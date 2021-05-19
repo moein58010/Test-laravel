@@ -70,9 +70,16 @@ class ArticleController extends Controller
     }
 
 
+    // public function edit($id){
+    // هم باید تغییر بدیم return هم می توان استفاده کرد البته در  $id از  $article بجای 
+    // public function edit($article){
+    // Article = خود مدل , $article = باید اسم مدل توی روت باشه
+    public function edit(Article $article){
+    
+        // $article = Article::findOrFail($id);
 
-    public function edit($id){
-        $article = Article::findOrFail($id);
+        // dd($article);
+        return $article;
 
         return view('admin.articles.edit' , [
             'article' => $article
@@ -81,7 +88,8 @@ class ArticleController extends Controller
 
 
     // public function update($id){
-       public function update(ArticleRequest $request,$id){
+    // public function update(ArticleRequest $request,$id){
+       public function update(َArticleRequest $request,Article $article){
 
         // قدم اول. اعتبار سنجی
         // $validate_data = Validator::make(request()->all() , [
@@ -117,7 +125,7 @@ class ArticleController extends Controller
         // $article = Article::find($id);
 
         // ساده شده ی پایینی
-        $article = Article::findOrFail($id);
+        // $article = Article::findOrFail($id);
 
         // اگه آرتیکل خالی بود
         // if(is_null($article)) {
@@ -146,9 +154,10 @@ class ArticleController extends Controller
 
 
 
-    public function delete($id){
+    // public function delete($id){
+       public function delete(Article $article){
         // findOrFail => اگه وجود داشت بر می کرداند و اکه نه که خطای 404 را بر می گرداند
-        $article = Article::findOrFail($id);
+        // $article = Article::findOrFail($id);
 
         //delete() => متدی توی مدل ها هست که دیتا ها را حذف می کند
         $article->delete();

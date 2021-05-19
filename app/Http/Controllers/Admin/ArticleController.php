@@ -6,11 +6,11 @@ namespace App\Http\Controllers\Admin;
 
 
 // مدل آرتیکل را باید حتما یوز کنیم چون ازش استفاده کردیم
+use App\Http\Requests\ArticleRequest;
 use App\Models\Article;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\Request;
-use App\Http\Requests\ArticleRequest;
 
 
 
@@ -81,7 +81,7 @@ class ArticleController extends Controller
 
 
     // public function update($id){
-       public function update(َArticleRequest $request,$id){
+       public function update(ArticleRequest $request,$id){
 
         // قدم اول. اعتبار سنجی
         // $validate_data = Validator::make(request()->all() , [

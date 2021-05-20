@@ -49,14 +49,15 @@ class RouteServiceProvider extends ServiceProvider
                 ->group(base_path('routes/web.php'));
         });
 
-    
-    
-        // Route::bind('articleSlug' , function($value) {
+
+        //برایش برگرداند function($value)  صدا زدی، این نتیجه را 'articleSlug' وقتی این را
+         Route::bind('articleSlug' , function($value) {
         //     // dd($value);
         //     // return Article::findOrFail($value);
         //     return Article::where('slug', $value)->first();
-        // });
-    
+         return Article::where('slug', $value)->firstOrFail();
+         });
+
     }
 
 

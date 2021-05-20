@@ -88,6 +88,9 @@ use Illuminate\Http\Request;
 // HomeController@home   => اسم متد داخل کنترلر@اسم کنترلر
 Route::get('/', [\App\Http\Controllers\HomeController::class, 'home']);
 
+//برای نشان دادن هر صفحه جدید باید یک روت جدیدایجاد کنیم
+Route::get('/articles/{articleSlug}' , [\App\Http\Controllers\ArticleController::class, 'single']);
+
 Route::get('/about', [\App\Http\Controllers\HomeController::class, 'about']);
 
 Route::get('/contact', [\App\Http\Controllers\HomeController::class, 'contact']);

@@ -14,14 +14,14 @@ class HomeController extends Controller
         // $title = 'Hello !';
         // return view('index', ['title' => $title]);
         // برای ارنباط برقرار کردن با دیتابیس و جداول مختلف است  DB کلاس
-        // تمام دیتا های جدول را بصورت یک لیست بر می گرداند  get() با 
+        // تمام دیتا های جدول را بصورت یک لیست بر می گرداند  get() با
         // $articles = DB::table('articles')->get();
 
 
         // پیدا کردن یا برای بازگرداندن یک از آنها == where() or find ()
         // $articles = DB::table('articles')->find(1);
-    
-        
+
+
         // insert data
         // $articles = DB::table('articles')->insert([
         //     'title' => 'article 3',
@@ -45,7 +45,7 @@ class HomeController extends Controller
         // $articles = Article::all();
         // $articles = Article::orderBy('id')->get();
         // $articles = Article::orderBy('id' , 'desc')->get();
-        
+
 
         // برای تست استفاده می شود
         // dd($articles);
@@ -54,17 +54,22 @@ class HomeController extends Controller
 
         // return App\Models\Article::factory()->create();
         // return App\Models\Article::factory()->count(10)->create();
-        
+
         $articles = Article::orderBy('id' , 'desc')->get();
-        return view('index');
+
+        //ارسال آرتیکل
+        // return view('index', ['articles' => $articles]);
+
+        //به ما بر می کرداند ['articles' => $articles] یک لیستی شبیه به این
+        return view('index', compact('articles'));
 
     }
 
     public function about(){
-        return view('about');    
+        return view('about');
     }
 
     public function contact(){
-        return view('contact');   
+        return view('contact');
     }
 }

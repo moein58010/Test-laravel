@@ -19,7 +19,7 @@ class ArticleController extends Controller
      */
     // روت اصلی,form delete
      public function index()
-    {
+     {
         return view('admin.articles.index' , [
             'articles' => Article::all()
         ]);
@@ -81,15 +81,7 @@ class ArticleController extends Controller
         return redirect('/admin/articles/create');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-//    public function show($id)
-//    {
-//    }
+
 
     /**
      * Show the form for editing the specified resource.
@@ -103,6 +95,7 @@ class ArticleController extends Controller
     // Article = خود مدل , $article = باید اسم مدل توی روت باشه
     public function edit(Article $article)
     {
+
         // $article = Article::findOrFail($id);
 
         // dd($article);

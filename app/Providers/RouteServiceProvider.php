@@ -51,11 +51,11 @@ class RouteServiceProvider extends ServiceProvider
 
     
     
-        Route::bind('articleSlug' , function($value) {
-            // dd($value);
-            // return Article::findOrFail($value);
-            return Article::where('slug', $value)->first();
-        });
+        // Route::bind('articleSlug' , function($value) {
+        //     // dd($value);
+        //     // return Article::findOrFail($value);
+        //     return Article::where('slug', $value)->first();
+        // });
     
     }
 

@@ -120,7 +120,7 @@ Route::prefix('admin')->namespace('Admin')->group(function() {
     // Route::get('/articles/{article}/edit' , [ArticleController::class, 'edit']);
 
     // 2 ta route model binding (id & slug) 
-    Route::get('/articles/{articleSlug}/edit' , [ArticleController::class, 'edit']);
+    Route::get('/articles/{article}/edit' , [ArticleController::class, 'edit']);
 
 
     //دریافت داده های ارسال شده ویرایش شده 
@@ -133,5 +133,5 @@ Route::prefix('admin')->namespace('Admin')->group(function() {
 
     // استفاده نمی شود برای جلوگیری از هک و نفوذ get هیچ وقت برای پاک کردن از روت 
     // put or post => وجود داشته باشد csrf باعث میشه که برای حذف اطلاعات حتما باید یک 
-    Route::delete('/articles/{article}' , [ArticleController::class, 'delete']);
+    Route::delete('/articles/{article}' , [ArticleController::class, 'destroy']);
 }); 

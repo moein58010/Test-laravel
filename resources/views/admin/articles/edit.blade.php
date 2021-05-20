@@ -17,7 +17,7 @@
     @endif
 
     <!-- فرستادن دیتا ها به این پست -->
-    <form action="/admin/articles/{{ $article->id }}/edit" method="post">
+    <form action="/admin/articles/{{ $article->slug }}/edit" method="post">
         @csrf
         @method('put')
         <div class="form-group">

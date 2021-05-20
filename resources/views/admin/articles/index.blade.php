@@ -25,7 +25,7 @@
                     <td>{{ $article->id }}</td>
                     <td>{{ $article->title }}</td>
                     <td>
-                        <form action="/admin/articles/{{ $article->id }}" method="post">
+                        <form action="/admin/articles/{{ $article->slug }}" method="post">
                             @csrf
                             @method('delete')
                             <button class="btn btn-danger">delete</button>

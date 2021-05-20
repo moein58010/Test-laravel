@@ -79,7 +79,7 @@ class ArticleController extends Controller
         // $article = Article::findOrFail($id);
 
         // dd($article);
-        return $article;
+        // return $article;
 
         return view('admin.articles.edit' , [
             'article' => $article
@@ -89,7 +89,7 @@ class ArticleController extends Controller
 
     // public function update($id){
     // public function update(ArticleRequest $request,$id){
-       public function update(َArticleRequest $request,Article $article){
+       public function update(ArticleRequest $request,Article $article){
 
         // قدم اول. اعتبار سنجی
         // $validate_data = Validator::make(request()->all() , [
@@ -144,6 +144,7 @@ class ArticleController extends Controller
         // ساده شده بالایی
         // $validate_data = آرتیکل و بادی را بر می گرداند
         $article->update($validate_data);
+        
 
 
         // return redirect('/admin/articles/create');

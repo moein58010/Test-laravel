@@ -57,9 +57,10 @@ class HomeController extends Controller
         // return App\Models\Article::factory()->create();
         // return App\Models\Article::factory()->count(10)->create();
 
-        //برای نشان دیتا توی ویو اش = new TestMail('moein' , 1999)
-        Mail::to('moeinalizade58010@gmail.com')->send(new TestMail('moein' , 1999));
+        // برای نشان دیتا توی ویو اش = new TestMail('moein' , 1999)
+        // Mail::to('moeinalizade58010@gmail.com')->send(new TestMail('moein' , 1999));
 
+        session(['key' => 'value', 'name' => 'Moein', 'family' => 'Alizade']);
 
         $articles = Article::orderBy('id' , 'desc')->get();
 
@@ -72,7 +73,41 @@ class HomeController extends Controller
     }
 
     public function about(){
+        // dd(session('key'));
+        // dd(session('name'));
+
+
+        // را بر می کرداند session همه مقادیر = all()
+         dd(session()->all());
+
+
+
+//        اگه نام نداشت آنگاه مقدار پیش فرض را به ما برگداند
+//           dd(session()->get('name' , 'Moein'));
+
+// چون پارامتر اولش آرایه نیست، خود لاراول مفهموم بالایی را اجرا می کند
+//        dd(session('name' , 'Moein'));
+
+
+        //  session()->forget('')  =>  مشخص می کنیم را ازش حذف می کند session مقادیری که ما از
+//        session()->forget('name');
+
+
+//has() => یعنی وجود دارد یا نه ؟
+//        dd(session()->has('family'));
+
+
+//session()->flush('') = ها را برای ما پاک می کند sessions همه ی
+//        session()->flush('');
+
+
+
+
+
+
+
         return view('about');
+
     }
 
     public function contact(){

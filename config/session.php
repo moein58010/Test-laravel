@@ -30,9 +30,10 @@ return [
     | to immediately expire on the browser closing, set that option.
     |
     */
-
+//مشخص می کند session مدت زمان وجود داشتن یک
     'lifetime' => env('SESSION_LIFETIME', 120),
 
+//    هامون را ناپدید می کندو اکه غیر فعال باشد که بعد از مدت زمان لایف تایم اینکار را انجام می دهد  session مرورگر که بسته بشه، خودش
     'expire_on_close' => false,
 
     /*

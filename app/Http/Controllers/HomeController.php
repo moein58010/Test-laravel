@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Article;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\TestMail;
 
 
 class HomeController extends Controller
@@ -54,6 +56,10 @@ class HomeController extends Controller
 
         // return App\Models\Article::factory()->create();
         // return App\Models\Article::factory()->count(10)->create();
+
+        //برای نشان دیتا توی ویو اش = new TestMail('moein' , 1999)
+        Mail::to('moeinalizade58010@gmail.com')->send(new TestMail('moein' , 1999));
+
 
         $articles = Article::orderBy('id' , 'desc')->get();
 

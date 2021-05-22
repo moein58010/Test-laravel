@@ -4,8 +4,12 @@ namespace App\Http\Controllers;
 
 use App\Models\Article;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Cookie;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\TestMail;
+
+
+
 
 
 class HomeController extends Controller
@@ -60,7 +64,17 @@ class HomeController extends Controller
         // برای نشان دیتا توی ویو اش = new TestMail('moein' , 1999)
         // Mail::to('moeinalizade58010@gmail.com')->send(new TestMail('moein' , 1999));
 
-        session(['key' => 'value', 'name' => 'Moein', 'family' => 'Alizade']);
+//        session(['key' => 'value', 'name' => 'Moein', 'family' => 'Alizade']);
+
+
+//        Craete cookie with lifetime = 60min
+//        cookie()->queue(cookie('name', 'Moein', 60));
+
+//        ساده شده کد بالایی چون با صف می توان دقیقا مثل کوکی رفتار بکنیم
+        cookie()->queue('family', 'Alizade', 60*24);
+
+
+
 
         $articles = Article::orderBy('id' , 'desc')->get();
 
@@ -77,8 +91,20 @@ class HomeController extends Controller
         // dd(session('name'));
 
 
+
+//        get cookie and use in different routes
+//        dd(request()->cookie('Family'));
+//        request()->cookie('Family')
+
+
+//        delete cookie
+          cookie()->queue(cookie()->forget('family'));
+//          Cookie::queue(Cookie::forget('family'));
+
+
+
         // را بر می کرداند session همه مقادیر = all()
-         dd(session()->all());
+//         dd(session()->all());
 
 
 

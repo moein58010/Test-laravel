@@ -98,7 +98,7 @@ Route::get('/contact', [\App\Http\Controllers\HomeController::class, 'contact'])
 
 
 //  استفاد کردیم get می توان دریافت کرد چون از متد  get تنها توی روت  دیتا را بصورت
-Route::prefix('admin')->namespace('Admin')->group(function() {
+Route::prefix('admin')->namespace('Admin')->middleware('auth')->group(function() {
 
     // Route::get('/articles' , [ArticleController::class, 'index']);
 
@@ -144,3 +144,7 @@ Route::prefix('admin')->namespace('Admin')->group(function() {
     //only([]);     =>    فقط
     // Route::resource('articles' , 'ArticleController')->only(['destroy']);
 });
+
+
+Auth::routes();
+

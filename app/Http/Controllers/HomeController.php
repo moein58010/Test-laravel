@@ -71,7 +71,7 @@ class HomeController extends Controller
 //        cookie()->queue(cookie('name', 'Moein', 60));
 
 //        ساده شده کد بالایی چون با صف می توان دقیقا مثل کوکی رفتار بکنیم
-        cookie()->queue('family', 'Alizade', 60*24);
+//        cookie()->queue('family', 'Alizade', 60*24);
 
 
 
@@ -98,7 +98,7 @@ class HomeController extends Controller
 
 
 //        delete cookie
-          cookie()->queue(cookie()->forget('family'));
+//          cookie()->queue(cookie()->forget('family'));
 //          Cookie::queue(Cookie::forget('family'));
 
 

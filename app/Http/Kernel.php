@@ -14,6 +14,7 @@ class Kernel extends HttpKernel
      *
      * @var array
      */
+//     هایی که همه جا باید ایجاد شوندmiddleware
     protected $middleware = [
         // \App\Http\Middleware\TrustHosts::class,
         \App\Http\Middleware\TrustProxies::class,
@@ -32,6 +33,7 @@ class Kernel extends HttpKernel
      *
      * @var array
      */
+    //     هایی که فقط در روت های وب باید ایجاد شوندmiddleware
     protected $middlewareGroups = [
         // web => برای درخواست های ارسال شده از مرورگر ها به پروژه لاراولی ما هست
         'web' => [
@@ -57,6 +59,7 @@ class Kernel extends HttpKernel
      *
      * @var array
      */
+    //     هایی که هر حا آنها را صدا زدیم، باید ایجاد شوندmiddleware
     protected $routeMiddleware = [
         'auth' => \App\Http\Middleware\Authenticate::class,
         'auth.basic' => \Illuminate\Auth\Middleware\AuthenticateWithBasicAuth::class,

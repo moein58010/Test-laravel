@@ -12,6 +12,22 @@ use Illuminate\Support\Facades\Validator;
 
 class ArticleController extends Controller
 {
+
+
+    public function __construct()
+    {
+//        احراز هویت روی تمام متد ها
+//        $this->middleware('auth');
+
+
+//        only(['']) => یعنی فقط
+//        احراز هویت روی تمام متد ها بجز ایندکس
+        $this->middleware('auth')->except(['index','create']);
+    }
+
+
+
+
     /**
      * Display a listing of the resource.
      *

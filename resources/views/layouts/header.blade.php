@@ -21,6 +21,24 @@
             <a class="nav-link" href="#">Contact</a>
           </li>
         </ul>
+
+
+
+          @if(auth()->check())
+              <a href="/admin/articles" class="btn btn-info">Admin</a>
+      {{--   helper-function = route(')       --}}
+              <form action="{{ route('logout') }}" method="post">
+                  @csrf
+                  <button class="btn-danger">logout</button>
+              </form>
+          @else
+              <a href="{{ route('login') }}" class="btn btn-info">Login</a>
+          @endif
+
+
+
+
+
       </div>
     </div>
   </nav>

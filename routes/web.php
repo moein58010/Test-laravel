@@ -93,9 +93,12 @@ Route::get('/', [\App\Http\Controllers\HomeController::class, 'home']);
 Route::get('/articles/{articleSlug}' , [\App\Http\Controllers\ArticleController::class, 'single'])->middleware('guest');
 
 
+<<<<<<< HEAD
 //middleware('auth') =>  احراز هویت کاربر
 Route::get('/about', [\App\Http\Controllers\HomeController::class, 'about'])->middleware('auth');
 
+=======
+>>>>>>> 277208cdd43b2d03d6b555d48eda089b881fac24
 
 //name('') => برای این مفید هست که از یک روت چند جا استفاده کردیم و اکنون بخوایم آدرس مسیر اون روت را عوض کنیم دیگه لازم نیست توی همه آنجا هایی که از روت استفاده کردیم، آدرس مسیرش را عوض کنیم
 Route::get('/contact', [\App\Http\Controllers\HomeController::class, 'contact'])->name('contact');

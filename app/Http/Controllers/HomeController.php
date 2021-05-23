@@ -74,6 +74,12 @@ class HomeController extends Controller
 //        cookie()->queue('family', 'Alizade', 60*24);
 
 
+//        برای چک کردن دیتای کسی که لاگین کرده هست
+//          dd(auth()->user());
+
+//          چک کنیم که کاربر لاگین کرده یا نه
+//            dd(auth()->check());
+
 
 
         $articles = Article::orderBy('id' , 'desc')->get();

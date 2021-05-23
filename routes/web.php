@@ -93,7 +93,9 @@ Route::get('/articles/{articleSlug}' , [\App\Http\Controllers\ArticleController:
 
 Route::get('/about', [\App\Http\Controllers\HomeController::class, 'about']);
 
-Route::get('/contact', [\App\Http\Controllers\HomeController::class, 'contact']);
+
+//name('') => برای این مفید هست که از یک روت چند جا استفاده کردیم و اکنون بخوایم آدرس مسیر اون روت را عوض کنیم دیگه لازم نیست توی همه آنجا هایی که از روت استفاده کردیم، آدرس مسیرش را عوض کنیم
+Route::get('/contact', [\App\Http\Controllers\HomeController::class, 'contact'])->name('contact');
 
 
 

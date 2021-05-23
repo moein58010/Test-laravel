@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.master')
 
 @section('content')
 <div class="container">
@@ -8,6 +8,10 @@
                 <div class="card-header">{{ __('Login') }}</div>
 
                 <div class="card-body">
+
+{{--  چه روت ها و اسامی داریم بعدش آن اسمی که با این هماهنگ باشه را می گیرد واون آدرس مسیر را اینجا قرار می دهد  web.php یعنی میاد توی  action="{{ route('contact') }}"  --}}
+{{--                    <form method="POST" action="{{ route('contact') }}">--}}
+
                     <form method="POST" action="{{ route('login') }}">
                         @csrf
 

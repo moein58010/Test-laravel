@@ -42,6 +42,7 @@ class User extends Authenticatable
     ];
 
 
+<<<<<<< HEAD
 
 //    آرتیکل های فلان یوزر را بازگردان (رابطه 1 به چند)
 public function articles(){
@@ -57,4 +58,6 @@ public function articles(){
 
 
 
+=======
+>>>>>>> 18b852b49343c784be70da8c14bf553c1e1eb014
 }

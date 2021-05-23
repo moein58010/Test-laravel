@@ -20,9 +20,12 @@ class CreateArticlesTable extends Migration
 //          اعداد منفی را شامل نمی شود
 //            ('user_id') = ('namemodel_id(یا فیلدی که می خواهیم رابطه را برقرار بکنیم)')
             $table->unsignedBigInteger('user_id');
+<<<<<<< HEAD
 //            $table->unsignedBigInteger('u_i');
 
 
+=======
+>>>>>>> 18b852b49343c784be70da8c14bf553c1e1eb014
 
 //            با حذف کاربر، اطلاعات مربوط به آن مثل کامنت ها و آرتیکا ها و  غیره اش هم پاک شود
 //            foreign('user_id') = کلید خارجی

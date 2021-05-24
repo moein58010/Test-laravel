@@ -82,6 +82,7 @@ class HomeController extends Controller
 //          چک کنیم که کاربر لاگین کرده یا نه
 //            dd(auth()->check());
 
+<<<<<<< HEAD
 
 
 //        پیدا کردن و دریافت دیتای یوزر 5
@@ -125,6 +126,8 @@ class HomeController extends Controller
 
 
 
+=======
+>>>>>>> eda793ad033d0a0bf031c8bf2be611cf85044580
 
 
         $articles = Article::orderBy('id' , 'desc')->get();

@@ -32,8 +32,12 @@ class Article extends Model
     public function user(){
 //        متعلق هست به فلان یوزر
 //        User::class = اسم مدل
+<<<<<<< HEAD
 //        پیدا کند آرتیکلی که این کاربر ایجاد کرده است
         return $this->belongsTo(\App\Models\User::class);
+=======
+        return $this->belongsTo(User::class);
+>>>>>>> eda793ad033d0a0bf031c8bf2be611cf85044580
     }
 
 

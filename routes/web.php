@@ -89,16 +89,21 @@ use Illuminate\Http\Request;
 Route::get('/', [\App\Http\Controllers\HomeController::class, 'home']);
 
 //برای نشان دادن هر صفحه جدید باید یک روت جدیدایجاد کنیم
-Route::get('/articles/{articleSlug}' , [\App\Http\Controllers\ArticleController::class, 'single']);
+//single page articles
+Route::get('/articles/{articleSlug}' , [\App\Http\Controllers\ArticleController::class, 'single'])->middleware('guest');
 
-Route::get('/about', [\App\Http\Controllers\HomeController::class, 'about']);
 
-Route::get('/contact', [\App\Http\Controllers\HomeController::class, 'contact']);
+//middleware('auth') =>  احراز هویت کاربر
+Route::get('/about', [\App\Http\Controllers\HomeController::class, 'about'])->middleware('auth');
+
+
+//name('') => برای این مفید هست که از یک روت چند جا استفاده کردیم و اکنون بخوایم آدرس مسیر اون روت را عوض کنیم دیگه لازم نیست توی همه آنجا هایی که از روت استفاده کردیم، آدرس مسیرش را عوض کنیم
+Route::get('/contact', [\App\Http\Controllers\HomeController::class, 'contact'])->name('contact');
 
 
 
 //  استفاد کردیم get می توان دریافت کرد چون از متد  get تنها توی روت  دیتا را بصورت
-Route::prefix('admin')->namespace('Admin')->middleware('auth')->group(function() {
+Route::prefix('admin')->namespace('Admin')->group(function() {
 
     // Route::get('/articles' , [ArticleController::class, 'index']);
 

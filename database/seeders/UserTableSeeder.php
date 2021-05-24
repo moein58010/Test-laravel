@@ -3,6 +3,9 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
+use App\Models\User;
+
+
 
 class UserTableSeeder extends Seeder
 {
@@ -13,6 +16,8 @@ class UserTableSeeder extends Seeder
      */
     public function run()
     {
-        // return App\Models\User::factory()->count(10)->create();
+//        برو توی اپ/مدل/مدل آرتیکل حالا 10 تا داده ی فیک تولید کن
+        return \App\Models\User::factory()->count(10)->create();
+
     }
 }

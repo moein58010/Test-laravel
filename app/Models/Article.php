@@ -27,6 +27,16 @@ class Article extends Model
         ];
     }
 
+
+//    بر اساس آرتیکل، دیتا های یوزرش را هم برگذداند
+    public function user(){
+//        متعلق هست به فلان یوزر
+//        User::class = اسم مدل
+//        پیدا کند آرتیکلی که این کاربر ایجاد کرده است
+        return $this->belongsTo(\App\Models\User::class);
+    }
+
+
 }
 
 

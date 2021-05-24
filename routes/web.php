@@ -93,30 +93,11 @@ Route::get('/', [\App\Http\Controllers\HomeController::class, 'home']);
 Route::get('/articles/{articleSlug}' , [\App\Http\Controllers\ArticleController::class, 'single'])->middleware('guest');
 
 
-<<<<<<< HEAD
+
 //middleware('auth') =>  احراز هویت کاربر
 Route::get('/about', [\App\Http\Controllers\HomeController::class, 'about'])->middleware('auth');
 
-=======
-<<<<<<< HEAD
-//middleware('auth') =>  احراز هویت کاربر
-Route::get('/about', [\App\Http\Controllers\HomeController::class, 'about'])->middleware('auth');
 
-=======
-<<<<<<< HEAD
-//middleware('auth') =>  احراز هویت کاربر
-Route::get('/about', [\App\Http\Controllers\HomeController::class, 'about'])->middleware('auth');
-
-=======
-<<<<<<< HEAD
-//middleware('auth') =>  احراز هویت کاربر
-Route::get('/about', [\App\Http\Controllers\HomeController::class, 'about'])->middleware('auth');
-
-=======
->>>>>>> 277208cdd43b2d03d6b555d48eda089b881fac24
->>>>>>> d4909f6ed81367aa9e1f4088f36806eb286254d8
->>>>>>> 18b852b49343c784be70da8c14bf553c1e1eb014
->>>>>>> eda793ad033d0a0bf031c8bf2be611cf85044580
 
 //name('') => برای این مفید هست که از یک روت چند جا استفاده کردیم و اکنون بخوایم آدرس مسیر اون روت را عوض کنیم دیگه لازم نیست توی همه آنجا هایی که از روت استفاده کردیم، آدرس مسیرش را عوض کنیم
 Route::get('/contact', [\App\Http\Controllers\HomeController::class, 'contact'])->name('contact');

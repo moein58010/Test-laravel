@@ -17,6 +17,7 @@ use App\Mail\TestMail;
 class HomeController extends Controller
 {
     public function home(){
+
         // return view('welcome');
         // return view('index');
         // $title = 'Hello !';
@@ -82,11 +83,10 @@ class HomeController extends Controller
 //          چک کنیم که کاربر لاگین کرده یا نه
 //            dd(auth()->check());
 
-<<<<<<< HEAD
 
 
 //        پیدا کردن و دریافت دیتای یوزر 5
-          $user = User::find(5);
+//          $user = User::find(5);
 //          return $user;
 //        get() => آبجکت یا همون شی را به رشته تبدیل می کند و به ما بر می گرداند و در واقع یک لیست داریم
 //        return $user->articles()->get();
@@ -99,7 +99,7 @@ class HomeController extends Controller
 
 //        پیدا کردن دیتای یوزر از آرتیکلی که داریم
 //          پیدا کردن آرتیکل با آیدی 5
-          $article = Article::find(5);
+//          $article = Article::find(5);
 
 
 //         دیتای یوزر را به ما نشان بده و فقط یک آبجکت تکی داریم get()این
@@ -121,13 +121,9 @@ class HomeController extends Controller
 //          return $article->user->id;
 
 
-          $user = $article->user;
+//          $user = $article->user;
 
 
-
-
-=======
->>>>>>> eda793ad033d0a0bf031c8bf2be611cf85044580
 
 
         $articles = Article::orderBy('id' , 'desc')->get();

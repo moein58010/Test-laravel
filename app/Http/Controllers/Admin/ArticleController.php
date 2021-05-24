@@ -22,7 +22,7 @@ class ArticleController extends Controller
 
 //        only(['']) => یعنی فقط
 //        احراز هویت روی تمام متد ها بجز ایندکس
-        $this->middleware('auth')->except(['index','create']);
+        $this->middleware('auth')->except(['index']);
     }
 
 
@@ -63,6 +63,12 @@ class ArticleController extends Controller
     public function store(ArticleRequest $request)
     {
 
+//    برگرداندن دیتای یوزری  که لاگین کرده است
+//      return auth()->user();
+
+
+
+
         // $validate_data = Validator::make(request()->all() , [
         //     'title' => 'required|min:10|max:50',
         //     'body' => 'required'
@@ -88,11 +94,24 @@ class ArticleController extends Controller
 
 
 
-        Article::create([
+//        Article::create([
+//            دیتای یوزر را می گیرد و به آیدی اش دسترسی پیدا می کنیم
+//        solve1 -> error: General error: 1364 Field 'user_id' doesn't have a default value & Attempt to read property "id" on null
+//            'user_id' => auth()->user()->id,
+//            'title' => $validate_data['title'],
+//            // 'slug' => $validate_data['title'],
+//            'body' => $validate_data['body'],
+//        ]);
+
+
+//        solve2 (the best) -> error: General error: 1364 Field 'user_id' doesn't have a default value & Attempt to read property "id" on null
+//      هست را صدا می زنیم articles() دیتای کاربری که لاگین کرده را می گیریم و بعد رابطه را که
+//      create() ->  چون از این متد استفاده کردیم باید یک لیست از دیتا هایی که مدنظرمون هست پاس بدهیم
+        auth()->user()->articles()->create([
             'title' => $validate_data['title'],
-            // 'slug' => $validate_data['title'],
             'body' => $validate_data['body'],
         ]);
+
 
         return redirect('/admin/articles/create');
     }

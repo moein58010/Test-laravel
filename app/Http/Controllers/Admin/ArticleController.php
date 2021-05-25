@@ -113,6 +113,12 @@ class ArticleController extends Controller
         ]);
 
 
+
+        return $request->all();
+
+
+
+
         return redirect('/admin/articles/create');
     }
 

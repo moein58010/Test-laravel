@@ -52,6 +52,14 @@ class DatabaseSeeder extends Seeder
 //           saveMany() =  برای ذخیره سازی یک کالکشنی از آرتیکل ها یا ذخیره سازی تکی
 //           بین 1 تا 6 تا مقاله برای هر کاربر ایجاد می کند
                 $user->articles()->saveMany(\App\Models\Article::factory()->count(rand(1,6))->make());
+
+
+
+//                ایجاد 10 تا دسته بندی
+//                \App\Models\Category::factory()->count(5)->create();
+
+
+
             });
 
 

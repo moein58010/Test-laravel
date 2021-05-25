@@ -40,6 +40,14 @@ class Article extends Model
     }
 
 
+    public function categories(){
+
+//        استفاده بکنیم belongsToMany() استفاده کرد و باید از  hasMany() یک آرتیکل تعداد زیادی دسته بندی دارد ولی اینجا چون رابطه ی چند به چند هست نباید از
+//        Category::class = model Category
+        return $this->belongsToMany(\App\Models\Category::class);
+    }
+
+
 }
 
 

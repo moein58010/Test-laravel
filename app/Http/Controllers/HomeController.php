@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 
+use App\Models\Category;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use App\Models\Article;
 use App\Models\User;
@@ -122,6 +123,26 @@ class HomeController extends Controller
 
 
 //          $user = $article->user;
+
+
+
+
+//        آرتیکل 39 را پیدا می کنیم
+//        $article = Article::find(39);
+// دسته بندی های مرتبط با آرتیکل 39 را بر می گرداند
+//        return $article->categories()->get();
+
+//        فقط نام های دسته بندی های مرتبط با آرتیکل 39 را بر می گرداند
+//       pluck('') =>  اکر توی یک لیستی چند تا آبجکت داشته باشیم، این پلاک با گرفتن یک اسم می تواند توی هر کدوم از اون آبجکت ها اون فیلد را جدا کند و بجای همون آبکت قرارش بدهد
+//        return $article->categories()->pluck('name');
+
+
+
+//        دسته بندی 1 را پیدا می کنیم
+        $cate = Category::find(1);
+//        فقط نام های آرایکل های مرتبط با دسته بندی 1 را بر می گرداند
+        return $cate->articles()->get();
+
 
 
 

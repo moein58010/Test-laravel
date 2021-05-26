@@ -94,6 +94,10 @@ class ArticleController extends Controller
 
 
 
+//        return $request->all();
+
+
+
 //        Article::create([
 //            دیتای یوزر را می گیرد و به آیدی اش دسترسی پیدا می کنیم
 //        solve1 -> error: General error: 1364 Field 'user_id' doesn't have a default value & Attempt to read property "id" on null
@@ -107,14 +111,21 @@ class ArticleController extends Controller
 //        solve2 (the best) -> error: General error: 1364 Field 'user_id' doesn't have a default value & Attempt to read property "id" on null
 //      هست را صدا می زنیم articles() دیتای کاربری که لاگین کرده را می گیریم و بعد رابطه را که
 //      create() ->  چون از این متد استفاده کردیم باید یک لیست از دیتا هایی که مدنظرمون هست پاس بدهیم
-        auth()->user()->articles()->create([
+        $article = auth()->user()->articles()->create([
             'title' => $validate_data['title'],
             'body' => $validate_data['body'],
         ]);
 
 
 
-        return $request->all();
+
+
+
+//        $article->categories()->attach($request->input('categories'));
+        $article->categories()->attach($validate_data['categories']);
+
+
+//        return $request->all();
 
 
 
@@ -211,6 +222,17 @@ class ArticleController extends Controller
         // ساده شده بالایی
         // $validate_data = آرتیکل و بادی را بر می گرداند
         $article->update($validate_data);
+
+
+
+
+//        بعد از آپدیت شدن دیتا ها ما باید دسته بندی ها رو هم آپدیت کنیم
+//         کنیم  detach() اول باید دسته بندی هایی که از قبل وجود دارد را
+//                                     کنیم attach() بعد مقادیر جدید را
+//        sync()  => می کند attach() یعنی حذف می کند، سپس مقادیر جدید را  detach() اول دیتا های قبلی را
+        $article->categories()->sync($validate_data['categories']);
+
+
 
 
 

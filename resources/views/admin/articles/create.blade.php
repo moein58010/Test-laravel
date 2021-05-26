@@ -27,7 +27,7 @@
             <lablae for="">category :</lablae>
 {{--  برای ایجاد امکان انتخاب چند تایی = multiple  --}}
 {{--          مشخص می کند که دسته بندی ما آرایه هست و چند تا مقدار را می تواند بر گرداند => name="categories[]  --}}
-            <select name="categoies[]" class="form-control" multiple>
+            <select name="categories[]" class="form-control" multiple>
 {{--                <option value="1">laravel</option>--}}
 {{--                <option value="2">css</option>--}}
 

@@ -2,7 +2,12 @@
 @extends('layouts.master')
 
 @section('content')
-    <h2>All Article</h2>
+
+    <div class="w-full h-auto flex row p-3">
+        <div class="w-24 h-24"><h2>All Article</h2></div>
+        <div class="w-24 h-24 mt-1 ml-3"><a href="/admin/articles/create" class="btn btn-success">create</a></div>
+    </div>
+
     <table class="table">
         <thead>
             <tr>
@@ -28,6 +33,7 @@
                         <form action="/admin/articles/{{ $article->id }}" method="post">
                             @csrf
                             @method('delete')
+                            <a href="/admin/articles/{{ $article->id }}/edit" class="btn btn-primary">edit</a>
                             <button class="btn btn-danger">delete</button>
                         </form>
                     </td>

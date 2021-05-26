@@ -90,7 +90,8 @@ Route::get('/', [\App\Http\Controllers\HomeController::class, 'home']);
 
 //برای نشان دادن هر صفحه جدید باید یک روت جدیدایجاد کنیم
 //single page articles
-Route::get('/articles/{articleSlug}' , [\App\Http\Controllers\ArticleController::class, 'single'])->middleware('guest');
+//Route::get('/articles/{articleSlug}' , [\App\Http\Controllers\ArticleController::class, 'single'])->middleware('guest');
+Route::get('/articles/{articleSlug}' , [\App\Http\Controllers\ArticleController::class, 'single']);
 
 
 

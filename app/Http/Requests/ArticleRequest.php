@@ -25,8 +25,10 @@ class ArticleRequest extends FormRequest
     public function rules()
     {
         return [
+//            reqired =  حتما باید ثبت شود
             'title' => 'required|min:10|max:50',
-            'body' => 'required'
+            'body' => 'required',
+            'categories' => 'required'
         ];
     }
 }

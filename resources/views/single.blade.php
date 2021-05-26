@@ -14,6 +14,18 @@
             </div>
             <div class="card-footer text-muted">
                 Posted on January 1, 2020 by
+
+
+{{--   نمایش دسته بندی ها --}}
+
+                <ul>
+                    @foreach($article->categories()->get() as $category)
+                        <li>{{ $category->name }}</li>
+                    @endforeach
+                </ul>
+
+
+
                 <a href="#">Start Bootstrap</a>
             </div>
         </div>

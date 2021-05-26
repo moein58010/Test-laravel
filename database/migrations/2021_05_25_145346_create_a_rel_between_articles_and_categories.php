@@ -37,6 +37,7 @@ class CreateARelBetweenArticlesAndCategories extends Migration
 //             باید یکتا باشد و توی یک سطر مقدار تکرای نداشته باشند  article_id & category_id برای اینکه نتوانیم هیچ دو سطری با هم برابر باشند یعنی
            $table->unique(['article_id','category_id']);
 
+
         });
     }
 

@@ -139,6 +139,7 @@ class HomeController extends Controller
 
 
 //        دسته بندی 1 را پیدا می کنیم
+
 //        $cate = Category::find(1);
 //        فقط نام های آرایکل های مرتبط با دسته بندی 1 را بر می گرداند
 //        return $cate->articles()->get();
@@ -150,11 +151,6 @@ class HomeController extends Controller
 
         //        ثبت کردن روابط چند به چند و آیدی هایی که از دسته بندی که می خواهیم را برای این آرتیکل حذف کنیم
 //        return $article->categories()->detach([2,3]);
-
-
-
-
-
 
 
 

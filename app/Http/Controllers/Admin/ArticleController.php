@@ -145,13 +145,15 @@ class ArticleController extends Controller
     // هم باید تغییر بدیم return هم می توان استفاده کرد البته در  $id از  $article بجای
     // public function edit($article){
     // Article = خود مدل , $article = باید اسم مدل توی روت باشه
-    public function edit(Article $article)
+    public function edit( $id)
     {
 
         // $article = Article::findOrFail($id);
 
+        $article = \App\Models\Article::where('id','=',$id)->first();
+
         // dd($article);
-        // return $article;
+        // returnR $article;
 
         return view('admin.articles.edit' , [
             'article' => $article

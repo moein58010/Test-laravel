@@ -76,9 +76,7 @@
 
 
 
-use App\Http\Controllers\Admin\ArticleController;
 
-use Illuminate\Http\Request;
 
 
 
@@ -86,7 +84,19 @@ use Illuminate\Http\Request;
 
 
 // HomeController@home   => اسم متد داخل کنترلر@اسم کنترلر
-Route::get('/', [\App\Http\Controllers\HomeController::class, 'home']);
+//Route::get('/', [\App\Http\Controllers\HomeController::class, 'home']);
+Route::get('/', [\App\Http\Controllers\Auth\ControllerRegister::class, 'index']);
+Route::post('index', [\App\Http\Controllers\Auth\ControllerRegister::class, 'store'])->name('store');
+
+
+
+
+
+
+
+
+
+
 
 //برای نشان دادن هر صفحه جدید باید یک روت جدیدایجاد کنیم
 //single page articles
